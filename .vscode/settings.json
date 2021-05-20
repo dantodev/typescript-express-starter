@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": false,
+  "eslint.validate": ["typescript", "javascript"],
+  "search.exclude": {
+    "node_modules": true
+  },
+  "files.watcherExclude": {
+    "**/node_modules/*/**": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "jshint.enable": false
+}

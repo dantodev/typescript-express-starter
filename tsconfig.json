@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true
+  },
+  "include": [
+    "./src/**/*"
+  ],
+}
