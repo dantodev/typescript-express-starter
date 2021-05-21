@@ -3,7 +3,8 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "noImplicitAny": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "resolveJsonModule": true
   },
   "include": [
     "./src/**/*"

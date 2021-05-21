@@ -1,36 +1,33 @@
 import express from "express";
-import dotenv from "dotenv";
-import fs from "fs";
-import path from "path";
-import Router from "./lib/router";
-import * as HelloWorld from "./api/hello-world";
+import homeApi from "./api/home-api";
+import fallbackApi from "./api/fallback-api";
+import { initEnvLoader } from "./lib/env-loader";
+import { handleError } from "./lib/errors";
+import { name, version } from "../package.json";
 
 export let app: express.Application;
-export let router: Router;
 
 function startApp() {
-  loadEnv("../.env.local");
-  loadEnv(`../.env.${process.env.NODE_ENV}`);
-  loadEnv("../.env");
+  console.log(`starting ${name} v${version}`);
+
+  initEnvLoader();
 
   app = express();
-  router = new Router(app);
   registerRoutes();
 
+  app.use((error: Error, request: express.Request, response: express.Response, next: express.NextFunction) => {
+    handleError(error, request, response);
+    next();
+  });
+
   app.listen(process.env.SERVER_PORT, () => {
-    console.log(`Server started at port ${process.env.SERVER_PORT}`);
+    console.log(`server started at port ${process.env.SERVER_PORT}`);
   });
 }
 
 function registerRoutes() {
-  router.registerRoute("get", "/", HelloWorld.home);
-}
-
-function loadEnv(envPath: string) {
-  envPath = path.resolve(__dirname, envPath);
-  if (fs.existsSync(envPath)) {
-    dotenv.config({ path: envPath });
-  }
+  app.use(homeApi);
+  app.use(fallbackApi);
 }
 
 startApp();

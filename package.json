@@ -5,7 +5,8 @@
   "licence": "MIT",
   "private": true,
   "scripts": {
-    "start": "ts-node ./src/server.ts --profile ./tsconfig.js",
+    "start": "nodemon --exec \"NODE_ENV=production ts-node ./src/server.ts --profile ./tsconfig.js\"",
+    "dev": "nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"NODE_ENV=development ts-node ./src/server.ts --profile ./tsconfig.js\"",
     "test": "jest",
     "lint": "eslint --ext .js,.ts,.json src",
     "coverage": "jest --coverage"
@@ -23,6 +24,7 @@
     "express": "^4.17.1",
     "jest": "^26.6.3",
     "lint-staged": "^11.0.0",
+    "nodemon": "^2.0.7",
     "prettier": "^2.3.0",
     "ts-jest": "^26.5.6",
     "ts-node": "^9.1.1",
