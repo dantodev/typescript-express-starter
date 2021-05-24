@@ -1,9 +1,9 @@
 import express from "express";
-import homeApi from "./api/home-api";
-import fallbackApi from "./api/fallback-api";
 import { initEnvLoader } from "./lib/env-loader";
 import { handleError } from "./lib/errors";
 import { name, version } from "../package.json";
+import homeApi from "./api/home-api";
+import fallbackApi from "./api/fallback-api";
 
 export let app: express.Application;
 
