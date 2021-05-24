@@ -1,14 +1,16 @@
-# typescript-express-app
+# Typescript/Express.js Starter
 
-This starter is preconfigured with:
+This my Typescript/Express.js starter setup with:
 
-- typescript (ts-node)
-- express as web server
-- jest for unit tests
-- eslint + prettier for syntax linting and consistent code style
-- vscode format on save (requires eslint plugin in vscode)
-- git hook to lint code before commit
+- Typescript (using `ts-node`)
+- Express.js as web server
+- Jest for unit tests
+- ESLint + Prettier for syntax linting and consistent code style
+- VS Code format on save configuration (requires the ESLint plugin in VS Code)
+- GIT hook to lint code before commit
 - nodemon for automatic restart on crash and watch mode while development
 - dotenv environment configurations
 - error handling and reusable error type exception
-- simple cli logger with log level support
+- simple CLI logger with log level support
+
+**This is tuned to my current needs but I'm open for recommendations if you think I'm doing something wrong.**
