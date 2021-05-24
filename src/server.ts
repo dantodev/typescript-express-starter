@@ -13,6 +13,7 @@ function startApp() {
   initEnvLoader();
 
   app = express();
+  app.use(express.json());
   registerRoutes();
 
   app.use((error: Error, request: express.Request, response: express.Response, next: express.NextFunction) => {
